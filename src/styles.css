@@ -1,4 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+/* Free lo-fi / pixel display faces — stand-ins with a Lofi-Forest-like feel.
+   Swap "Pixelify Sans" below for "Silkscreen" or "VT323" to taste. */
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Silkscreen:wght@400;700&family=VT323&display=swap');
+
+/* Lofi Forest (Kilotype) — drop the font file in public/fonts/ for this to load.
+   Falls back to IBM Plex Mono until the file is present. */
+@font-face {
+  font-family: "Lofi Forest";
+  src: url("/fonts/LofiForestTrial-Pixel.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lofi Forest Solid";
+  src: url("/fonts/LofiForestTrial-Solid.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Exposure";
+  src: url("/fonts/ExposureTrialVAR.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Exposure";
+  src: url("/fonts/ExposureTrialVAR-Italic.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
 
 :root {
   color: #d7d7d2;
@@ -13,12 +44,20 @@
 }
 
 html,
-body,
+body {
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100%;
+}
+
 #app {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0;
-  overflow: hidden;
 }
 
 body {
@@ -186,6 +225,245 @@ h1 {
   content: "+";
   margin-right: 8px;
   color: rgba(26, 112, 78, 0.72);
+}
+
+.hover-title-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* soft overexposed bloom around the white stipple, like the reference */
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.75))
+    drop-shadow(0 0 22px rgba(255, 255, 255, 0.6))
+    drop-shadow(0 0 52px rgba(255, 255, 255, 0.42))
+    drop-shadow(0 0 100px rgba(255, 255, 255, 0.28));
+}
+
+.hero-subtitle {
+  position: absolute;
+  left: 50%;
+  top: 49.5%;
+  transform: translateX(-50%);
+  z-index: 6;
+  margin: 0;
+  max-width: min(560px, 86vw);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(10px, 0.85vw, 13px);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: rgba(248, 248, 242, 0.95);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+#app:hover .hero-subtitle {
+  opacity: 1;
+}
+
+/* gradient that melts the hero's bottom into the white essay below */
+.hero-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 26%;
+  z-index: 7;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 45%,
+    rgba(255, 255, 255, 0.82) 78%,
+    #ffffff 100%
+  );
+}
+
+/* ---- Are.na-style editorial essay, clean white ---- */
+.scroll-index {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: clamp(28px, 4vh, 48px) clamp(22px, 5vw, 64px) clamp(100px, 18vh, 200px);
+  background: #ffffff;
+  color: #141414;
+}
+
+/* channel / category meta, pinned top-left like Are.na */
+.essay-topbar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 0 clamp(80px, 16vh, 200px);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #5e5e5e;
+}
+
+.essay-topbar strong {
+  color: #141414;
+  font-weight: 700;
+}
+
+.essay-chapters {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 14px;
+}
+
+.essay-chapters a {
+  color: #141414;
+  text-decoration: none;
+}
+
+.essay-chapters a:hover {
+  text-decoration: underline;
+}
+
+/* outer container = the WIDE image width; text is a narrower centered column */
+.essay {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* text elements sit in a narrow centered column */
+.essay-title,
+.essay-byline,
+.essay-lead,
+.essay p {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.essay-title {
+  margin-bottom: clamp(20px, 4vh, 44px);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: clamp(26px, 2.2vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #111111;
+}
+
+.essay-byline {
+  margin-bottom: clamp(36px, 8vh, 80px);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: #5e5e5e;
+}
+
+.essay-lead {
+  margin-bottom: clamp(20px, 3vh, 30px);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(18px, 1.25vw, 21px);
+  line-height: 1.55;
+  color: #1a1a1a;
+}
+
+.essay p {
+  margin-bottom: clamp(18px, 2.4vh, 26px);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(16px, 1.1vw, 19px);
+  line-height: 1.6;
+  color: #1f1f1f;
+}
+
+/* images are WIDER than the text column, centered, with centered captions */
+.essay-figure {
+  margin: clamp(44px, 8vh, 96px) auto;
+  width: 100%;
+}
+
+.essay-figure .figure-box {
+  width: 100%;
+  height: clamp(280px, 52vh, 560px);
+  background: repeating-linear-gradient(45deg, #ededea 0 18px, #e6e6e2 18px 36px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.essay-figure figcaption {
+  margin-top: 14px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #6a6a6a;
+}
+
+.essay-figure .cap-main {
+  display: block;
+  color: #3a3a3a;
+}
+
+.essay-figure .cap-alt {
+  display: block;
+  color: #9a9a9a;
+}
+
+/* hoverable words that reveal an image preview */
+.reveal-word {
+  color: #141414;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.4);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.reveal-word:hover {
+  color: #1a8a4e;
+  border-bottom-color: #1a8a4e;
+}
+
+/* cursor-following hover preview (mockup) */
+.hover-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  gap: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(18px, -50%) scale(0.96);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.hover-preview.is-visible {
+  opacity: 1;
+  transform: translate(18px, -50%) scale(1);
+}
+
+.preview-media {
+  width: clamp(160px, 18vw, 240px);
+  height: clamp(110px, 12vw, 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.preview-image {
+  background: repeating-linear-gradient(45deg, #cfcfc8 0 10px, #c3c3bc 10px 20px);
+  color: #1a1a1a;
+}
+
+.preview-video {
+  background: #1d1d1d;
+  color: #e6e6e0;
+  border-color: rgba(255, 255, 255, 0.16);
 }
 
 @media (max-width: 720px) {

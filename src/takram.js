@@ -189,10 +189,11 @@ const renderer = new WebGLRenderer({
 });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 renderer.toneMapping = NoToneMapping;
-renderer.toneMappingExposure = 8;
+renderer.toneMappingExposure = 10;
 
 const scene = new Scene();
-const camera = new PerspectiveCamera(65, 1, 10, 1e6);
+// Wider FOV -> more sky in frame, clouds read as more distant (the "25% zoom" look).
+const camera = new PerspectiveCamera(95, 1, 10, 1e6);
 
 const geodetic = new Geodetic(radians(30), radians(67), 500);
 const position = geodetic.toECEF();

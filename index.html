@@ -3,13 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Takram Cloud Reference</title>
+    <title>Cloud Gardens</title>
   </head>
   <body class="takram-page">
     <main id="app">
       <canvas id="three"></canvas>
       <canvas id="ascii"></canvas>
+      <canvas id="title" class="hover-title-canvas" role="img" aria-label="Cloud Gardens"></canvas>
+      <div class="hero-fade" aria-hidden="true"></div>
+      <p class="hero-subtitle">
+        Project by Last Resort, Organismo TBA21, in collaboration with BC3
+        <br />
+        A protocol for cultivating clouds in the West Mediterranean basin
+      </p>
     </main>
+
+    <section class="scroll-index" aria-label="Essay">
+      <header class="essay-topbar">
+        <div>Organismo 2023</div>
+        <div>Case Study: <strong>Last Resorts</strong></div>
+        <nav class="essay-chapters">
+          <a href="#">01 — Land &amp; Atmospheric Water Cycle ↗</a>
+          <a href="#">02 — Community Dialogue &amp; Scenario Planning ↗</a>
+          <a href="#">03 — Simulation, Modelling &amp; Analysis ↗</a>
+          <a href="#">04 — The Cloud Garden Protocol ↗</a>
+        </nav>
+      </header>
+
+      <article class="essay">
+        <h2 class="essay-title">Cloud Gardens</h2>
+        <p class="essay-byline">June 2026 — by Last Resorts</p>
+
+        <p class="essay-lead">
+          Last Resorts explores how ecological imaginaries come to matter in
+          times of deep uncertainty.
+        </p>
+
+        <p>
+          Cloud Gardens is a grassroots geoengineering proposal for maintaining
+          the land-atmospheric water cycle in the West Mediterranean basin
+          through land-use planning and
+          <span class="reveal-word" data-image="image: cloud formation">cloud-formation</span>
+          through
+          <span class="reveal-word" data-image="image: evapotranspiration">evapotranspiration</span>.
+        </p>
+
+        <figure class="essay-figure">
+          <div class="figure-box"></div>
+          <figcaption>
+            <span class="cap-main">Río Palancia valley, the pilot site. Valencia, 2026.</span>
+            <span class="cap-alt">[ image placeholder ]</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          Taking the
+          <span class="reveal-word" data-image="image: Río Palancia valley">Río Palancia valley</span>
+          in northern Valencia as its case study and pilot site, the initiative
+          is a collaboration between the Last Resorts team at Organismo and the
+          <span class="reveal-word" data-image="image: BC3">Basque Centre for Climate Change</span>,
+          who have long worked in the region.
+        </p>
+
+        <figure class="essay-figure">
+          <div class="figure-box"></div>
+          <figcaption>
+            <span class="cap-main">The three core components of the project.</span>
+            <span class="cap-alt">[ image placeholder ]</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          The project has three core components: community dialogue and scenario
+          planning through stakeholder gathering and negotiation; a
+          <span class="reveal-word" data-image="image: simulation tool">game-engine simulation-based narrative tool</span>
+          bringing together embedded local knowledge, scientific modelling and
+          economic analysis; which entwine to establish the Cloud Garden itself,
+          a public space and a protocol for cultivating, stewarding and
+          re-imagining the collective relationship between land, water and
+          atmosphere.
+        </p>
+
+        <figure class="essay-figure">
+          <div class="figure-box"></div>
+          <figcaption>
+            <span class="cap-main">The Cloud Garden, a public space and a protocol.</span>
+            <span class="cap-alt">[ image placeholder ]</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          Understanding the land and sky as a commons produced for future
+          generations through collective stewardship and labour — a work of art
+          — the Cloud Garden is a place and a protocol for cultivating clouds in
+          the West Mediterranean basin.
+        </p>
+      </article>
+    </section>
+
+    <div class="hover-preview" aria-hidden="true">
+      <div class="preview-media preview-image">image</div>
+    </div>
+
     <script type="module" src="/src/takram.js"></script>
+    <script type="module" src="/src/title.js"></script>
+    <script type="module" src="/src/index-list.js"></script>
   </body>
 </html>

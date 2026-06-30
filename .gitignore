@@ -4,3 +4,9 @@ dist/
 .env
 .env.local
 npm-debug.log*
+
+# iCloud offloaded stubs
+*.icloud
+
+# Claude local settings
+.claude/
